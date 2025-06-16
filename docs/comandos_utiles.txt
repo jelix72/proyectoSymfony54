@@ -1,0 +1,9 @@
+symfony new --full -> Creamos un proyecto completo para web monolítica
+symfony new guestbook --version=5.0 -> Crea un proyecto symfony skeleton común version 5.0
+symfony book:check-requirements -> requerimientos para el proyecto del libro de symfony
+
+symfony server:start -d -> Iniciamos nuestro servidor interno de symfony
+symfony open:local -> Abrimos el proyecto en el navegador
+
+symfony console list make -> Vemos la lista de cosas que se pueden crear con el bundle Make
+symfony console make:controller -> Creamos un controlador con el comando correspondiente
