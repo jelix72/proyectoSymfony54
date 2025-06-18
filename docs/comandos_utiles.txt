@@ -1,9 +1,28 @@
 symfony new --full -> Creamos un proyecto completo para web monolítica
 symfony new guestbook --version=5.0 -> Crea un proyecto symfony skeleton común version 5.0
 symfony book:check-requirements -> requerimientos para el proyecto del libro de symfony
+symfony composer require orm -> instala los componentes de doctrine
 
-symfony server:start -d -> Iniciamos nuestro servidor interno de symfony
+symfony server:ca:install -> Instalamos https en desarrollo
+symfony server:start -d -> Iniciamos nuestro servidor interno de symfony como un demonio
 symfony open:local -> Abrimos el proyecto en el navegador
+symfony server:log
 
 symfony console list make -> Vemos la lista de cosas que se pueden crear con el bundle Make
 symfony console make:controller -> Creamos un controlador con el comando correspondiente
+symfony console make:entity nombreEntidad -> Creamos una entidad llamada nombreEntidad
+symfony console doctrine:database:create -> Creamos una base de datos
+symfony console doctrine:schema:create --dump-sql -> Creamos las tablas y nos muestra cual es la sentencia que se estaría ejecutando
+symfony console doctrine:schema:create
+symfony console make:migration -> Creamos la primera migración a la DB
+symfony console doctrine:migrations:migrate -> Ejecutamos la migración al motor de DB establecido
+
+## PARA DOCKER
+symfony var:export -> exponemos las variables de entorno de Symfony
+docker images -> Vemos la lista de imagenes instaladas en Docker
+docker-compose up -d -> creamos el contenedir Docker y lo inicia como un demonio
+docker-compose ps -> comprobamos que el contenedor se encuentra iniciado
+docker-compose stop -> detenemos el servidor de docker iniciado
+docker-compose start -> iniciamos un contenedor ya creado
+symfony run psql -c "SELECT 1 + 2" -> podemos hacer consultas desde la terminal al motor de DB
+
