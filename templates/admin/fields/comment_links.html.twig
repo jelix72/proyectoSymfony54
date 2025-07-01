@@ -1,0 +1,13 @@
+{% if entity.instance.getComments() is not empty %}
+    <ul>
+        {% for comment in entity.instance.getComments() %}
+            <li>
+                <a href="{{ ea_url().setController('App\\Controller\\Admin\\CommentCrudController').setAction('edit').setEntityId(comment.id) }}">
+                    {{ comment.author }} ({{ comment.email }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <div>No hay comentarios asociados.</div>
+{% endif %}

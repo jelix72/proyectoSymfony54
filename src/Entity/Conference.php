@@ -32,6 +32,11 @@ class Conference
         $this->comments = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->city . ' ' . $this->year;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -101,5 +106,30 @@ class Conference
         }
 
         return $this;
+    }
+
+    public function getCommentsCount(): int
+    {
+        return $this->comments->count();
+    }
+
+    public function getComentariosList(): string
+    {
+        if ($this->comments->isEmpty()) {
+            return '<em>No hay comentarios asociados</em>';
+        }
+
+        $html = '<ul>';
+        foreach ($this->comments as $comment) {
+            $html .= sprintf(
+                '<li><a href="/admin?crudControllerFqcn=App%%5CController%%5CAdmin%%5CCommentCrudController&crudAction=edit&entityId=%d">%s (%s)</a></li>',
+                $comment->getId(),
+                htmlspecialchars($comment->getAuthor(), ENT_QUOTES),
+                htmlspecialchars($comment->getEmail(), ENT_QUOTES)
+            );
+        }
+        $html .= '</ul>';
+
+        return $html;
     }
 }
