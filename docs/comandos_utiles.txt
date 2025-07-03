@@ -27,4 +27,6 @@ docker-compose ps -> comprobamos que el contenedor se encuentra iniciado
 docker-compose stop -> detenemos el servidor de docker iniciado
 docker-compose start -> iniciamos un contenedor ya creado
 symfony run psql -c "SELECT 1 + 2" -> podemos hacer consultas desde la terminal al motor de DB
-
+docker-compose logs -> me muestra los logs de docker para ver que servicios tengo funcionando
+docker exec -ti proyectosymfony54-redis-1 sh -> ingresamos dentro del contenedor de Redis
+redis-cli KEYS * -> le pedimos a Redis que nos devuelva las clavbes almacenadas actualmente

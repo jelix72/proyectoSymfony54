@@ -1,10 +1,12 @@
-version: '3'
-
 services:
-  app:
-    image: postgres:latest
+  database:
+    image: postgres:11-alpine
     ports: [5432:5432]
     environment:
       POSTGRES_USER: main
       POSTGRES_PASSWORD: main
       POSTGRES_DB: main
+
+  redis:
+    image: redis:5-alpine
+    ports: [6379:6379]
